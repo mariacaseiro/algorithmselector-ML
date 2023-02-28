@@ -92,8 +92,14 @@ def ranking_plot(path,y_pred,y_test):
     #rank the algorithms for each problem
     ranked = y_test.rank(axis=1, method='min', ascending=False)
     ml = pd.DataFrame()
-    ml['ML'] = [np.argmax(y_pred.iloc[i,:]) for i in range(y_pred.shape[0])] 
+    #get the real output value for each option selected in ml
+    selected = [np.argmax(y_pred.iloc[i,:]) for i in range(y_pred.shape[0])] 
+    ml['ML'] = [y_test.iloc[i][selected[i]] for i in range(y_test.shape[0])]
 
+    #get the ranking that each option of ml has in ranked dataframe (this way the ml data does not affect the ranking)
+    mls = pd.DataFrame()
+    mls = [ranked.iloc[i,np.argmax((y_test == ml.values).iloc[i])] for i in range(ranked.shape[0])]
+    ranked['ML'] = mls
     plt.rcParams["figure.figsize"] = (22,10)
     plt.rcParams['font.size'] = 2
     sns.set()
@@ -105,11 +111,9 @@ def ranking_plot(path,y_pred,y_test):
     colors = plt.cm.get_cmap('prism_r', len(y_test.columns.values))
 
     #iterate over the sorted algorithms and plot each bar
-    for i, opt in enumerate(y_test.columns.values):
-        ax.bar(x=y_test.columns, height=(ranked == i+1).sum() / len(ranked), bottom=(ranked <= i).sum() / len(ranked), 
+    for i, opt in enumerate(ranked.columns.values):
+        ax.bar(x=ranked.columns, height=(ranked == i+1).sum() / len(ranked), bottom=(ranked <= i).sum() / len(ranked), 
             color=colors(i), width=0.9, alpha=0.4, label=opt)
-        ax.bar(x='ML', height=(ml == i).sum() / len(ml), bottom=(ml < i).sum() / len(ml), 
-            color=colors(i), width=0.9, alpha=0.6, label=opt)
     
     #.patches is everything inside of the chart
     for rect in ax.patches:
