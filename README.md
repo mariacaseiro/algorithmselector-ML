@@ -5,8 +5,11 @@ scikit-learn.
 
 ### Table of Contents
 [Introduction](#Introduction)
-[ML module](#ML-module)  
+
+[ML module](#ML-module)
+
 [Plots module](#Plots-module)
+
 [Execution example](#Execution-example)  
 
 ## Introduction
