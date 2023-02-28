@@ -85,11 +85,15 @@ ML box is also created by selecting the best option for each instance
 (i.e. the closest value to one after normalizing). Each box will represent 
 the number of times that the option was selected as the best.
 
+<img src="/example_plots/boxplot.png" alt="Boxplot example" style="height: 500px;"/>
+
 ### performance_comparison_plot
 Creates the bar plot or the stacked bar plot that represent percentage of 
 times (percentage of problems) that each option is selected by ML compared 
 with the optimal solution. In other words, it compares the number of times 
 that the ML selects the best possible option.
+
+<img src="/example_plots/fig_comp.png" alt="Comparison plot example" style="height: 500px;"/>
 
 ### ranking_plot
 This function generates a plot where, for each instance, the branching 
@@ -97,9 +101,7 @@ rules are ranked from best to worst, according to the normalized output.
 Stacked bar graphs represent percentage of problems in each rank position 
 per option. It should be used with the normalized data.
 
-![Boxplot example](/example_plots/boxplot.png)
-![Comparison plot example](/example_plots/fig_comp.png)
-![Raking plot example](/example_plots/ranking.png)
+<img src="/example_plots/ranking.png" alt="Raking plot example" style="height: 500px;"/>
 
 ## Execution example
 
