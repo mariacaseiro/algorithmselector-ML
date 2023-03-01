@@ -21,9 +21,8 @@ def boxplot(path,y_pred,y_test):
 
     #select the best option for each problem
     df=y_test.copy()
-    best_opt=algorithm_portfolio(y_test,y_pred)
-    values=best_opt.iloc[:,0].tolist()
-    df["ML_sel"] = values
+    selected = [np.argmax(y_pred.iloc[i,:]) for i in range(y_pred.shape[0])] 
+    df["ML_sel"] = [y_test.iloc[i][selected[i]] for i in range(y_test.shape[0])]
     plt.rcParams["figure.figsize"] = (12,7)
 
     #prepare the plot
