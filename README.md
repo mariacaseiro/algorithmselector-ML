@@ -3,21 +3,22 @@
 This project shows an algorithm selection library using ML based on the 
 scikit-learn.
 
-## Context
+### Context
 
 This project arose after the writing of the paper [Learning for Spatial Branching: An Algorithm Selection Approach](https://arxiv.org/abs/2204.10834)
-The use of machine learning techniques to improve the performance of branch-and-bound optimization algorithms is a very active area in the context of mixed integer linear problems, but little has been done for non-linear optimization. To bridge this gap, we develop a learning framework for spatial branching and show its efficacy in the context of the Reformulation-Linearization Technique for polynomial optimization problems.
 
-This library is intended to generalize the analysis performed in the paper. It analyzes multiple algorithms on a set of problems, defined by their features, and seeks to provide a series of metrics and graphs to compare their performance. In addition, it provides a learning-based solution of the  optimal choice of algorithm depending on the problem.
+> The use of machine learning techniques to improve the performance of branch-and-bound optimization algorithms is a very active area in the context of mixed integer linear problems, but little has been done for non-linear optimization. To bridge this gap, we develop a learning framework for spatial branching and show its efficacy in the context of the Reformulation-Linearization Technique for polynomial optimization problems.
+
+This library is intended to generalize the analysis performed in the above-mentioned paper. It analyzes multiple algorithms on a set of problems, defined by their features, and seeks to provide a series of metrics and graphs to compare their performance. Not only compares the performance of the algorithms on the dataset, but also provides a learning-based solution of the optimal choice of algorithm based on the problem's features.
 
 ### Table of Contents
-[Introduction](#Introduction)
+- [Introduction](#Introduction)
 
-[ML module](#ML-module)
+- [ML module](#ML-module)
 
-[Plots module](#Plots-module)
+- [Plots module](#Plots-module)
 
-[Execution example](#Execution-example)  
+- [Execution example](#Execution-example)  
 
 ## Introduction
 Thanks to this library you will be able to run the training and prediction 
